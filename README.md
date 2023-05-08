@@ -2,7 +2,7 @@
 ### `npm install`
 
 # Start JSON SERVER
-npx json-server --watch data/db.json --port 8000  
+### npx json-server --watch data/db.json --port 8000  
 
 # Getting Started with Create React App
 
