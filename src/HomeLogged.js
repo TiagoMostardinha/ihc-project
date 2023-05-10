@@ -1,12 +1,12 @@
 import homeImg from './img/home.png';
 import card1Img from './img/card1.png';
 import { Link } from 'react-router-dom';
-import NavBar from './Navbar';
+import NavBarLogged from './NavbarLogged';
 
 const Home = () => {
     return (
         <div className="home">
-            <NavBar />
+            <NavBarLogged />
             <div className="hero-container">
                 <div className="hero min-h-screen" style={{ backgroundImage: `url(${homeImg})` }}>
                     <div className="hero-overlay bg-opacity-60"></div>

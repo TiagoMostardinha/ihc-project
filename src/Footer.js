@@ -12,7 +12,7 @@ const Footer = () => {
                 <div className="grid grid-flow-col gap-4">
                     <ul>
                         <li>Tiago Mostardinha, 103944</li>
-                        <li>xxx,000</li>
+                        <li>Fábio Matias, 108011</li>
                         <li>xxx,000</li>
                     </ul>
                 </div>
