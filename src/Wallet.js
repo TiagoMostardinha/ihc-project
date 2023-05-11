@@ -1,7 +1,13 @@
 import MyMeds from "./MyMeds.js";
 import useFetch from "./useFetch.js";
 
-const Wallet = () => {
+const Wallet = (user) => {
+    const { data: medicaments, isPending, error } = useFetch('http://localhost:8000/medicaments');
+    
+    console.log("MEDS",medicaments);
+    console.log("UM",user["user"]["user_meds"]);
+
+
     return (
         <div className="wallet-container flex p-10" >
             <div className="flex-2 w-2/3 mr-10">
