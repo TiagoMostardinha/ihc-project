@@ -11,23 +11,23 @@ import LogIn from './LogIn.js';
 
 
 function App() {
-  let user = {
-    "name": "John",
-    "user_meds": [
-      {
-        "id": 1,
-        "hour": ""
-      },
-      2,
-      3
-    ],
-    "history": [
-      4
-    ],
-    "id": 1
-  }
+  // let user = {
+  //   "name": "John",
+  //   "user_meds": [
+  //     {
+  //       "id": 1,
+  //       "hour": ""
+  //     },
+  //     2,
+  //     3
+  //   ],
+  //   "history": [
+  //     4
+  //   ],
+  //   "id": 1
+  // }
 
-  // let user = null;
+  let user = null;
 
   return (
     <Router>
