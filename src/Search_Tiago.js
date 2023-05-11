@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import useFetch from './useFetch';
+import { Link } from 'react-router-dom';
 
 const Search_Tiago = () => {
   const { data: medicaments, isPending, error } = useFetch('http://localhost:8000/medicaments');
@@ -61,6 +62,7 @@ const Search_Tiago = () => {
                 <div className="flex-grow">
                   <h2 className="text-2xl font-bold text-gray-800">{medicament.name}</h2>
                   <p className="text-gray-600">{medicament.description}</p>
+                  <Link to="/drug" className="btn btn-primary">Go There</Link>
                 </div>
               </div>
             ))}
