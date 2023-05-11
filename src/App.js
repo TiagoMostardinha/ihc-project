@@ -20,8 +20,8 @@ function App() {
     "user_meds": [
       {
         "id": 1,
-        "hours": 5,
-        "minutes": 55,
+        "hours": 12,
+        "minutes": 55,  
       }
     ],
     "history": [
