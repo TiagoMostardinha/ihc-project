@@ -1,7 +1,9 @@
 import homeImg from './img/home.png';
 import card1Img from './img/card1.png';
+
 import { Link } from 'react-router-dom';
 import NavBar from './Navbar';
+import useFetch from "./useFetch";
 
 const Home = () => {
     return (

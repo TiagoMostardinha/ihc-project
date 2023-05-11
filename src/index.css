@@ -5,6 +5,7 @@
 
 body {
   margin: 0;
+  background-color: #6CAD8A;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -15,4 +16,21 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#black-fount{
+  color: black;
+}
+
+#navbar {
+  background-color: #277A4E;
+  
+}
+
+#card-profile {
+  background-color: #3C614D;
+}
+
+#list-profile {
+  background-color: #37AD6F;
 }
