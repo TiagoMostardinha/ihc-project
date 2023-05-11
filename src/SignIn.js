@@ -3,9 +3,8 @@ import NavBar from './Navbar';
 const SignIn = () => {
     return (
         <div className="signin">
-            <NavBar />
             <div class="flex justify-center">
-                <h1 className="text-4xl">Sign In</h1>
+                <h1 className="text-5xl">Sign In</h1>
             </div>
             <div class="container mx-sm pl-96 pt-16 pb-2">
                 <h1>Name</h1>

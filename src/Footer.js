@@ -13,7 +13,7 @@ const Footer = () => {
                     <ul>
                         <li>Tiago Mostardinha, 103944</li>
                         <li>Fábio Matias, 108011</li>
-                        <li>xxx,000</li>
+                        <li>Pablo Rollán, 112110</li>
                     </ul>
                 </div>
             </div>
