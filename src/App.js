@@ -7,10 +7,28 @@ import Profile from './ProfileT1.js'
 
 
 function App() {
+  let user = {
+    "name": "John",
+    "user_meds": [
+      {
+        "id": 1,
+        "hour": ""
+      },
+      2,
+      3
+    ],
+    "history": [
+      4
+    ],
+    "id": 1
+  }
+
+  // let user = null;
+
   return (
     <Router>
       <div className="App">
-        <NavBar />
+        <NavBar user={user} />
         <div className="content">
           <Routes>
             <Route exact path='/' element={<Home />} />
