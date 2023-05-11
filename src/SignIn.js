@@ -29,6 +29,16 @@ const SignIn = () => {
             telephone: document.getElementById('telephone').value,
             allergies: document.getElementById('allergies').value,
             gender: selectedValue.gender,
+            "user_meds": [
+                {
+                  "id": 1,
+                  "hours": 5,
+                  "minutes": 55,
+                }
+              ],
+              "history": [
+                2
+              ]
 
 
         });
