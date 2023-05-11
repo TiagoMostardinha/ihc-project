@@ -1,6 +1,6 @@
 import user from './img/user.png';
 
-const Profile = () => {
+const ProfileT1 = () => {
     const weight = 89;
     const height = 184;
     const gender = 'Male';
@@ -26,7 +26,7 @@ const Profile = () => {
                     <div>
                         <div className="card-body items-right text-right">
                             <div className="tabs">
-                                <a className="tab tab-bordered tab-active">Medical Info</a>
+                                <a className="tab tab-bordered tab-active" >Medical Info</a>
                                 <a className="tab tab-bordered" href='/profile2'>Personal Info</a>
                             </div>
                             <ul className="menu bg-base-100 w-56 p-2 rounded-box">
@@ -93,4 +93,4 @@ const Profile = () => {
 
 
 
-export default Profile;
+export default ProfileT1;
