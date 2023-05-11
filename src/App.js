@@ -13,21 +13,14 @@ import LogIn from './LogIn.js';
 
 
 function App() {
-  let user = {
-    "name": "John",
-    "user_meds": [
-      {
-        "id": 1,
-        "hours": 5,
-        "minutes": 55,
-      }
-    ],
-    "history": [
-      2
-    ]
-  }
 
-  //let user = null;
+
+  let user = null;
+  if (localStorage.getItem("user")) {
+    user = JSON.parse(localStorage.getItem("user"));
+  }
+  
+
 
   return (
     <Router>
