@@ -1,9 +1,7 @@
 import { Link } from 'react-router-dom';
-import NavBar from './Navbar';
 const SignIn = () => {
     return (
         <div className="signin">
-            <NavBar />
             <div class="flex justify-center">
                 <h1 className="text-4xl">Sign In</h1>
             </div>
