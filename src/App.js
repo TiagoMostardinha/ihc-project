@@ -10,6 +10,7 @@ import SearchSol from './SearchSol.js';
 import SignIn from './SignIn.js';
 import AboutUs from './AboutUs.js';
 import LogIn from './LogIn.js';
+import Drug from './Drug.js'
 import Search_Tiago from './Search_Tiago.js';
 
 
@@ -37,11 +38,9 @@ function App() {
             <Route exact path='/signin' element={<SignIn />} />
             <Route exact path='/aboutus' element={<AboutUs />} />
             <Route exact path='/login' element={<LogIn />} />
+            <Route exact path='/drug' element={<Drug />} />
             <Route exact path='/wallet' element={<Wallet user={user}/>} />
-
             <Route exact path='/search' element={<Search_Tiago />} />
-
-
           </Routes>
         </div>
         <Footer />
