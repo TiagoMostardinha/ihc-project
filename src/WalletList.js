@@ -6,6 +6,7 @@ const WalletList = ({ medicaments, user }) => {
 
     const now = new Date();
 
+    
     return (
         <div className="medicaments-list">
             {filteredMeds.map((medicament) => (
@@ -15,8 +16,8 @@ const WalletList = ({ medicaments, user }) => {
                         <p className="text-gray-600">{medicament.description}</p>
                     </div>
                     <span className="countdown font-mono text-2xl">
-                        <span style={{ "--value": 10 }}></span>h
-                        <span style={{ "--value": 24 }}></span>m
+                        <span style={{ "--value": user.user_meds.find(med => med.id === medicament.id).hours - now.getHours() }}></span>h
+                        <span style={{ "--value": user.user_meds.find(med => med.id === medicament.id).minutes - now.getMinutes() }}></span>m
                     </span>
                 </div>
             ))}

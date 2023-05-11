@@ -2,7 +2,7 @@ import bandaidImg from './img/band-aid.svg';
 
 const Footer = () => {
     return (
-        <footer className="footer p-10 bg-neutral text-neutral-content">
+        <footer className="footer p-10 bg-neutral text-neutral-content fixed bottom-0">
             <div>
                 <img className="w-20 mb-5" src={bandaidImg} alt="bandaid"></img>
                 <p>DETI Industries Ltd.<br />Providing reliable tech since 2000's</p>
