@@ -3,7 +3,7 @@ import useFetch from "./useFetch.js";
 
 import WalletList from "./WalletList.js";
 
-const Wallet = (user) => {
+const Wallet = (fuser) => {
     const { data: medicaments, isPending, error } = useFetch('http://localhost:8000/medicaments');
 
     return (
@@ -16,7 +16,7 @@ const Wallet = (user) => {
                     </button>
                 </div>
 
-                {medicaments && <WalletList medicaments={medicaments} user ={user.user} />}
+                {medicaments && <WalletList medicaments={medicaments} fuser ={fuser.fuser} />}
 
 
                 {/* <div className="medicament-item flex items-center justify-between bg-gray-100 p-4">
@@ -36,7 +36,7 @@ const Wallet = (user) => {
             <div className="flex-1 w-1/3 shadow-2xl rounded-lg bg-gray-0">
                 <h1 className="text-2xl font-bold text-center text-gray-900 border-b-2 border-gray-900 p-2">History</h1>
                 
-                {medicaments && <HistoryList medicaments={medicaments} user ={user.user} />}
+                {medicaments && <HistoryList medicaments={medicaments} fuser ={fuser.fuser} />}
                 
                 {/* <div className="history-item m-2 border-b-2 border-gray-200 p-2">
                     <h2 className="text-lg font-bold text-gray-900">Paracetamol</h2>

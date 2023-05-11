@@ -3,14 +3,26 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 const SignIn = () => {
     const [user, setUser] = useState({
-        name: '',
+        "name": "John",
+        "user_meds": [
+          {
+            "id": 1,
+            "hours": 5,
+            "minutes": 55,
+          }
+        ],
+        "history": [
+          2
+        ],
+        uname: '',
         email: '',
         password: '',
         country: '',
         weight: '',
         height: '',
         telephone: '',
-        sex: ''
+        sex: '',
+
       });
     
       const handleClick = (e) => {
@@ -20,7 +32,18 @@ const SignIn = () => {
         const selectedValue = JSON.parse(selectedOption.getAttribute("data-value"));
         // Update the user state with the new information entered in the form
         setUser({
-            name: document.getElementById('name').value,
+            "name": "John",
+            "user_meds": [
+              {
+                "id": 1,
+                "hours": 5,
+                "minutes": 55,
+              }
+            ],
+            "history": [
+              2
+            ],
+            uname: document.getElementById('uname').value,
             email: document.getElementById('email').value,
             password: document.getElementById('password').value,
             country: document.getElementById('country').value,
@@ -29,6 +52,8 @@ const SignIn = () => {
             telephone: document.getElementById('telephone').value,
             allergies: document.getElementById('allergies').value,
             gender: selectedValue.gender,
+
+
 
 
         });
@@ -54,7 +79,7 @@ const SignIn = () => {
                 <h1>Name</h1>
             </div>
             <div class="container mx-lg flex justify-center pb-4 pl-24">
-                <input type="text" placeholder="" className="input input-bordered input-sm w-3/5" id='name' />
+                <input type="text" placeholder="" className="input input-bordered input-sm w-3/5" id='uname' />
             </div>
             <div class="container mx-sm pl-96 pt-4 pb-2">
                 <h1>E-mail</h1>
