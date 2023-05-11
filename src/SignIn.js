@@ -27,6 +27,7 @@ const SignIn = () => {
             weight: document.getElementById('weight').value,
             height: document.getElementById('height').value,
             telephone: document.getElementById('telephone').value,
+            allergies: document.getElementById('allergies').value,
             gender: selectedValue.gender,
 
 
@@ -38,6 +39,7 @@ const SignIn = () => {
       };
       useEffect(() => {
         // Log the updated user object to the console whenever the state changes
+        localStorage.setItem("user", JSON.stringify(user));
         const userFromStorage = JSON.parse(localStorage.getItem("user"));
         console.log(userFromStorage);
       }, [user]);
@@ -89,6 +91,12 @@ const SignIn = () => {
             </div>
             <div class="container mx-lg flex justify-center pb-4 pl-24">
                 <input type="text" placeholder="" className="input input-bordered input-sm w-3/5" id='telephone'/>
+            </div>
+            <div class="container mx-sm pl-96 pt-4 pb-2">
+                <h1>Allergies</h1>
+            </div>
+            <div class="container mx-lg flex justify-center pb-4 pl-24">
+                <input type="text" placeholder="" className="input input-bordered input-sm w-3/5" id='allergies'/>
             </div>
             <div class="container mx-sm pl-96 pt-4 pb-2">
                 <h1>Sex</h1>

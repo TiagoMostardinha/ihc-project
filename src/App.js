@@ -26,8 +26,12 @@ function App() {
   //   ],
   //   "id": 1
   // }
-
+//if (!localStorage.getItem("user")) user = null else user = JSON.parse(localStorage.getItem("user"));
   let user = null;
+  if (localStorage.getItem("user")) {
+    user = JSON.parse(localStorage.getItem("user"));
+  }
+  
 
   return (
     <Router>
