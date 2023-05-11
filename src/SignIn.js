@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
+import NavBar from './Navbar';
 const SignIn = () => {
     return (
         <div className="signin">
+            <NavBar />
             <div class="flex justify-center">
                 <h1 className="text-4xl">Sign In</h1>
             </div>
@@ -58,7 +60,7 @@ const SignIn = () => {
                 </select>
             </div>
             <div class="container mx-lg flex justify-center pb-4 pl-24">
-                <Link to='/'><button class="btn">Sign In</button></Link>
+                <Link to='/logged'><button class="btn">Sign In</button></Link>
                 
             </div>
         </div>
