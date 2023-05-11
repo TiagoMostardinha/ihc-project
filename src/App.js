@@ -36,8 +36,10 @@ function App() {
           <Routes>
             <Route exact path='/' element={<Home />} />
             <Route exact path='/wallet' element={<Wallet />} />
-
+            <Route exact path='/signin' element={<SignIn />} />
             <Route exact path='/profile' element={<Profile />} />
+            <Route exact path='/aboutus' element={<AboutUs />} />
+            
 
           </Routes>
         </div>

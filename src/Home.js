@@ -8,7 +8,6 @@ import useFetch from "./useFetch";
 const Home = () => {
     return (
         <div className="home">
-            <NavBar />
             <div className="hero-container">
                 <div className="hero min-h-screen" style={{ backgroundImage: `url(${homeImg})` }}>
                     <div className="hero-overlay bg-opacity-60"></div>
