@@ -4,6 +4,7 @@ import Home from './Home.js';
 import Footer from './Footer.js';
 import Wallet from './Wallet.js';
 import SignIn from './SignIn.js';
+import AboutUs from './AboutUs.js';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
             <Route exact path='/' element={<Home />} />
             <Route exact path='/wallet' element={<Wallet />} />
             <Route exact path='/signin' element={<SignIn />} />
+            <Route exact path='/aboutus' element={<AboutUs />} />
 
           </Routes>
         </div>

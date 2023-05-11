@@ -1,10 +1,11 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
 import tiagoImg from './img/tiago.png';
 import fabioImg from './img/fabio.png';
 import pabloImg from './img/pablo.png';
-import { Link } from 'react-router-dom';
+import NavBarLogged from './NavbarLogged.js';
 
 const AboutUs = () => {
+    <NavBarLogged />
     return (
         <div className="aboutus" class="py-16">
             <div>
