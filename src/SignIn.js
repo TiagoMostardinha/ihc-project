@@ -75,13 +75,13 @@ const SignIn = () => {
                 <input type="text" placeholder="" className="input input-bordered input-sm w-3/5" id='country'/>
             </div>
             <div class="container mx-sm pl-96 pt-4 pb-2">
-                <h1>Weight</h1>
+                <h1>Weight (in kg)</h1>
             </div>
             <div class="container mx-lg flex justify-center pb-4 pl-24">
                 <input type="text" placeholder="" className="input input-bordered input-sm w-3/5" id='weight'/>
             </div>
             <div class="container mx-sm pl-96 pt-4 pb-2">
-                <h1>Height</h1>
+                <h1>Height (in cm)</h1>
             </div>
             <div class="container mx-lg flex justify-center pb-4 pl-24">
                 <input type="text" placeholder="" className="input input-bordered input-sm w-3/5" id='height'/>

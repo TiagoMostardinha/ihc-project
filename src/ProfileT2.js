@@ -1,11 +1,17 @@
 import user from './img/user.png';
 
 const ProfileT2 = () => {
-    const name = 'Fabio';
-    const email = 'fabio03@ua.pt';
-    const password = '*****************';
-    const country = "Portugal";
-    const telephone = "658795443";
+    function maskPassword(password) {
+        const maskedPassword = password.slice(1, -1).replace(/./g, '*');
+        return password.charAt(0) + maskedPassword + password.charAt(password.length - 1);
+      }
+      
+
+    const name = JSON.parse(localStorage.getItem("user"))['name'];
+    const email = JSON.parse(localStorage.getItem("user"))['email'];
+    const password = maskPassword(JSON.parse(localStorage.getItem("user"))['password']);
+    const country = JSON.parse(localStorage.getItem("user"))['country'];
+    const telephone = JSON.parse(localStorage.getItem("user"))['telephone'];
 
     return (
         <div className="flex justify-center items-center h-auto m-20">
