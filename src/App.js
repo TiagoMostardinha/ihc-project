@@ -11,23 +11,21 @@ import LogIn from './LogIn.js';
 
 
 function App() {
-  // let user = {
-  //   "name": "John",
-  //   "user_meds": [
-  //     {
-  //       "id": 1,
-  //       "hour": ""
-  //     },
-  //     2,
-  //     3
-  //   ],
-  //   "history": [
-  //     4
-  //   ],
-  //   "id": 1
-  // }
+  let user = {
+    "name": "John",
+    "user_meds": [
+      {
+        "id": 1,
+        "hours": 5,
+        "minutes": 55,
+      }
+    ],
+    "history": [
+      2
+    ]
+  }
 
-  let user = null;
+  //let user = null;
 
   return (
     <Router>
@@ -36,12 +34,13 @@ function App() {
         <div className="content">
           <Routes>
             <Route exact path='/' element={<Home />} />
-            <Route exact path='/wallet' element={<Wallet />} />
             <Route exact path='/profile1' element={<ProfileT1 />} />
             <Route exact path='/profile2' element={<ProfileT2 />} />
             <Route exact path='/signin' element={<SignIn />} />
             <Route exact path='/aboutus' element={<AboutUs />} />
             <Route exact path='/login' element={<LogIn />} />
+            <Route exact path='/wallet' element={<Wallet user={user}/>} />
+
           </Routes>
         </div>
         <Footer />

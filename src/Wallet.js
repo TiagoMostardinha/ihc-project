@@ -1,7 +1,12 @@
+import HistoryList from "./HistoryList.js";
 import MyMeds from "./MyMeds.js";
 import useFetch from "./useFetch.js";
 
-const Wallet = () => {
+import WalletList from "./WalletList.js";
+
+const Wallet = (user) => {
+    const { data: medicaments, isPending, error } = useFetch('http://localhost:8000/medicaments');
+
     return (
         <div className="wallet-container flex p-10" >
             <div className="flex-2 w-2/3 mr-10">
@@ -12,7 +17,10 @@ const Wallet = () => {
                     </button>
                 </div>
 
-                <div className="medicament-item flex items-center justify-between bg-gray-100 p-4">
+                {medicaments && <WalletList medicaments={medicaments} user ={user.user} />}
+
+
+                {/* <div className="medicament-item flex items-center justify-between bg-gray-100 p-4">
                     <div className="flex-grow">
                         <h2 className="text-2xl font-bold text-gray-800">Medicament Title</h2>
                         <p className="text-gray-600">Medicament Description</p>
@@ -21,24 +29,21 @@ const Wallet = () => {
                         <span style={{ "--value": 10 }}></span>h
                         <span style={{ "--value": 24 }}></span>m
                     </span>
-                </div>
+                </div> */}
 
 
 
             </div>
             <div className="flex-1 w-1/3 shadow-2xl rounded-lg">
                 <h1 className="text-2xl font-bold text-center text-gray-900 border-b-2 border-gray-900 p-2">History</h1>
-                <div className="history-item m-2 border-b-2 border-gray-200 p-2">
+                
+                {medicaments && <HistoryList medicaments={medicaments} user ={user.user} />}
+                
+                {/* <div className="history-item m-2 border-b-2 border-gray-200 p-2">
                     <h2 className="text-lg font-bold text-gray-900">Paracetamol</h2>
                     <p>some description...</p>
                     <p className="text-right">4 march 2023</p>
-                </div>
-
-                <div className="history-item m-2 border-b-2 border-gray-200 p-2">
-                    <h2 className="text-lg font-bold text-gray-900">Paracetamol</h2>
-                    <p>some description...</p>
-                    <p className="text-right">4 march 2023</p>
-                </div>
+                </div> */}
             </div>
         </div>
     );
