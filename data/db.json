@@ -1,0 +1,13 @@
+{
+    "medicaments": [
+        {
+            "name" :"Paracetamol",
+            "description" : "Paracetamol is a pain reliever and a fever reducer.",
+            "id":1
+        }
+    ],
+    "user":{
+        "name":"John",
+        "id":1
+    }
+}

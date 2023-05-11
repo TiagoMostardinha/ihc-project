@@ -1,4 +1,5 @@
 import MyMeds from "./MyMeds.js";
+import useFetch from "./useFetch.js";
 
 const Wallet = () => {
     return (
@@ -26,7 +27,7 @@ const Wallet = () => {
 
             </div>
             <div className="flex-1 w-1/3 shadow-2xl rounded-lg">
-                <h1 class="text-2xl font-bold text-center text-gray-900 border-b-2 border-gray-900 p-2">History</h1>
+                <h1 className="text-2xl font-bold text-center text-gray-900 border-b-2 border-gray-900 p-2">History</h1>
                 <div className="history-item m-2 border-b-2 border-gray-200 p-2">
                     <h2 className="text-lg font-bold text-gray-900">Paracetamol</h2>
                     <p>some description...</p>
