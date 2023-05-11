@@ -7,7 +7,7 @@ import NavBarLogged from './NavbarLogged.js';
 const AboutUs = () => {
     <NavBarLogged />
     return (
-        <div className="aboutus" class="py-16">
+        <div className="aboutus py-16">
             <div>
                 <div className="flex justify-center pb-8">
                     <h1 className="text-4xl">About Us</h1>
