@@ -14,7 +14,19 @@ import Search_Tiago from './Search_Tiago.js';
 
 
 function App() {
-
+  let fuser = {
+    "name": "John",
+    "user_meds": [
+      {
+        "id": 1,
+        "hours": 5,
+        "minutes": 55,
+      }
+    ],
+    "history": [
+      2
+    ]
+  }
 
   let user = null;
   if (localStorage.getItem("user")) {
@@ -37,7 +49,7 @@ function App() {
             <Route exact path='/signin' element={<SignIn />} />
             <Route exact path='/aboutus' element={<AboutUs />} />
             <Route exact path='/login' element={<LogIn />} />
-            <Route exact path='/wallet' element={<Wallet user={user}/>} />
+            <Route exact path='/wallet' element={<Wallet fuser={fuser}/>} />
 
             <Route exact path='/search' element={<Search_Tiago />} />
 
