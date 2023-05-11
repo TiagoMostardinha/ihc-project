@@ -11,26 +11,18 @@ import SignIn from './SignIn.js';
 import AboutUs from './AboutUs.js';
 import LogIn from './LogIn.js';
 import Drug from './Drug.js'
+import Search_Tiago from './Search_Tiago.js';
 
 
 function App() {
-  // let user = {
-  //   "name": "John",
-  //   "user_meds": [
-  //     {
-  //       "id": 1,
-  //       "hour": ""
-  //     },
-  //     2,
-  //     3
-  //   ],
-  //   "history": [
-  //     4
-  //   ],
-  //   "id": 1
-  // }
+
 
   let user = null;
+  if (localStorage.getItem("user")) {
+    user = JSON.parse(localStorage.getItem("user"));
+  }
+  
+
 
   return (
     <Router>
@@ -39,15 +31,16 @@ function App() {
         <div className="content">
           <Routes>
             <Route exact path='/' element={<Home />} />
-            <Route exact path='/wallet' element={<Wallet />} />
             <Route exact path='/profile1' element={<ProfileT1 />} />
             <Route exact path='/profile2' element={<ProfileT2 />} />
-            <Route exact path='/search' element={<Search />} />
-            <Route exact path='/searchsol' element={<SearchSol />} />
+            {/* <Route exact path='/search' element={<Search />} />
+            <Route exact path='/searchsol' element={<SearchSol />} /> */}
             <Route exact path='/signin' element={<SignIn />} />
             <Route exact path='/aboutus' element={<AboutUs />} />
             <Route exact path='/login' element={<LogIn />} />
             <Route exact path='/drug' element={<Drug />} />
+            <Route exact path='/wallet' element={<Wallet user={user}/>} />
+            <Route exact path='/search' element={<Search_Tiago />} />
           </Routes>
         </div>
         <Footer />

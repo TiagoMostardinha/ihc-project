@@ -1,10 +1,10 @@
 import user from './img/user.png';
 
 const ProfileT1 = () => {
-    const weight = 89;
-    const height = 184;
-    const gender = 'Male';
-    const allergies = ["Peanut allergy, ", "Hay fever, ", "Shellfish allergy"];
+    const weight = JSON.parse(localStorage.getItem("user"))['weight'];
+    const height = JSON.parse(localStorage.getItem("user"))['height'];
+    const gender = JSON.parse(localStorage.getItem("user"))['gender'];
+    const allergies = JSON.parse(localStorage.getItem("user"))['allergies'];
     return (
         <div className="flex justify-center items-center h-auto m-20">
             <div className="card w-auto bg-base-100 shadow-xl"  id="perfil">
@@ -41,7 +41,7 @@ const ProfileT1 = () => {
                                             <path
                                                 d="M10 7a1 1 0 1 1 2 0v5a1 1 0 1 1-2 0V7Zm-6 4a1 1 0 1 1 2 0v1a1 1 0 1 1-2 0v-1Zm4-3a1 1 0 0 0-1 1v3a1 1 0 1 0 2 0V9a1 1 0 0 0-1-1Z"/>
                                         </svg>
-                                        Weight: {weight}kg
+                                        Weight: {weight} kg
                                     </a>
                                 </li>
                                 <li>
@@ -51,7 +51,7 @@ const ProfileT1 = () => {
                                             <path fill-rule="evenodd"
                                                   d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
                                         </svg>
-                                        Height: {height}cm
+                                        Height: {height} cm
                                     </a>
                                 </li>
                                 <li>

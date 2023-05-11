@@ -11,15 +11,20 @@ const LogIn = () => {
             <div class="container mx-lg flex justify-center pb-4 pl-96">
                 <input type="text" placeholder="" className="input input-bordered input-sm w-1/2" />
             </div>
-            <div class="container mx-sm flex justify-center pl-96 pt-8 pb-4">
+            <div class="container mx-sm flex justify-center pl-96 pt-4 pb-4">
                 <h1 className="text-2xl">Password</h1>
             </div>
             <div class="container mx-lg flex justify-center pb-2 pl-96">
                 <input type="text" placeholder="" className="input input-bordered input-sm w-1/2" />
             </div>
-            <div class="container mx-lg flex justify-center pt-8 pb-60 pl-96">
+            <div class="container mx-lg flex justify-center pt-4 pl-96">
                 <Link to='/'><button class="btn">Log In</button></Link>
-                
+            </div>
+            <div class="container mx-lg flex justify-center pt-2 pl-96">
+                or
+            </div>
+            <div class="container mx-lg flex justify-center pt-2 pb-56 pl-96">
+                <Link to='/signin'><button class="btn">Sign in</button></Link>
             </div>
         </div>
     );
