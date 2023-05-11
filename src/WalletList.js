@@ -1,7 +1,7 @@
-const WalletList = ({ medicaments, user }) => {
+const WalletList = ({ medicaments, fuser }) => {
     // console.log(user.user_meds[0].id);
 
-    const userMedsIds = user.user_meds.map(med => med.id);
+    const userMedsIds = fuser.user_meds.map(med => med.id);
     const filteredMeds = medicaments.filter(med => userMedsIds.includes(med.id));
 
     const now = new Date();
@@ -16,8 +16,8 @@ const WalletList = ({ medicaments, user }) => {
                         <p className="text-gray-600">{medicament.description}</p>
                     </div>
                     <span className="countdown font-mono text-2xl">
-                        <span style={{ "--value": user.user_meds.find(med => med.id === medicament.id).hours - now.getHours() }}></span>h
-                        <span style={{ "--value": user.user_meds.find(med => med.id === medicament.id).minutes - now.getMinutes() }}></span>m
+                        <span style={{ "--value": fuser.user_meds.find(med => med.id === medicament.id).hours - now.getHours() }}></span>h
+                        <span style={{ "--value": fuser.user_meds.find(med => med.id === medicament.id).minutes - now.getMinutes() }}></span>m
                     </span>
                 </div>
             ))}

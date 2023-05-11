@@ -1,6 +1,6 @@
-const HistoryList = ({ medicaments, user }) => {
+const HistoryList = ({ medicaments, fuser }) => {
 
-    const userMedsIds = user.history.map(med => med);
+    const userMedsIds = fuser.history.map(med => med);
     const filteredMeds = medicaments.filter(med => userMedsIds.includes(med.id));
 
     return (
