@@ -52,7 +52,6 @@ function App() {
             <Route exact path='/login' element={<LogIn />} />
             <Route exact path='/wallet' element={<Wallet fuser={fuser}/>} />
             <Route exact path='/drug' element={<Drug />} />
-
             <Route exact path='/search' element={<Search_Tiago />} />
           </Routes>
         </div>
