@@ -3,6 +3,7 @@ import useFetch from './useFetch';
 
 const Search_Tiago = () => {
   const { data: medicaments, isPending, error } = useFetch('http://localhost:8000/medicaments');
+  console.log(medicaments);
   const [selectedSymptom, setSelectedSymptom] = useState('');
   const [filteredMeds, setFilteredMeds] = useState([]);
 
@@ -55,7 +56,7 @@ const Search_Tiago = () => {
         <hr className="my-4" />
         <div className="grid grid-cols-3 gap-4">
           <div className="medicaments-list">
-            {filteredMeds.map((medicament) => (
+            {medicaments && filteredMeds.map((medicament) => (
               <div className="medicament-item flex items-center justify-between bg-gray-100 p-4" key={medicament.id}>
                 <div className="flex-grow">
                   <h2 className="text-2xl font-bold text-gray-800">{medicament.name}</h2>

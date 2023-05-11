@@ -5,6 +5,7 @@ import WalletList from "./WalletList.js";
 
 const Wallet = (fuser) => {
     const { data: medicaments, isPending, error } = useFetch('http://localhost:8000/medicaments');
+    console.log(fuser);
 
     return (
         <div className="wallet-container flex p-10" >
