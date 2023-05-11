@@ -32,14 +32,14 @@ function App() {
             <Route exact path='/' element={<Home />} />
             <Route exact path='/profile1' element={<ProfileT1 />} />
             <Route exact path='/profile2' element={<ProfileT2 />} />
-            <Route exact path='/search' element={<Search />} />
-            <Route exact path='/searchsol' element={<SearchSol />} />
+            {/* <Route exact path='/search' element={<Search />} />
+            <Route exact path='/searchsol' element={<SearchSol />} /> */}
             <Route exact path='/signin' element={<SignIn />} />
             <Route exact path='/aboutus' element={<AboutUs />} />
             <Route exact path='/login' element={<LogIn />} />
             <Route exact path='/wallet' element={<Wallet user={user}/>} />
 
-            <Route exact path='/search_tiago' element={<Search_Tiago />} />
+            <Route exact path='/search' element={<Search_Tiago />} />
 
 
           </Routes>
