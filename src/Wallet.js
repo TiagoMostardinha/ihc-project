@@ -4,7 +4,7 @@ import useFetch from "./useFetch.js";
 import WalletList from "./WalletList.js";
 
 const Wallet = (fuser) => {
-    const { data: medicaments, isPending, error } = useFetch('http://localhost:3000/medicaments');
+    const { data: medicaments, isPending, error } = useFetch('http://localhost:8000/medicaments');
 
     return (
         <div className="wallet-container flex p-10" >
