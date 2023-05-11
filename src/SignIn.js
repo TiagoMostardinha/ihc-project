@@ -10,7 +10,17 @@ const SignIn = () => {
         weight: '',
         height: '',
         telephone: '',
-        sex: ''
+        sex: '',
+        user_meds: [
+            {
+              id: 1,
+              hours: 5,
+              minutes: 55,
+            }
+          ],
+          history: [
+            2
+          ]
       });
     
       const handleClick = (e) => {
@@ -29,16 +39,17 @@ const SignIn = () => {
             telephone: document.getElementById('telephone').value,
             allergies: document.getElementById('allergies').value,
             gender: selectedValue.gender,
-            "user_meds": [
+            user_meds: [
                 {
-                  "id": 1,
-                  "hours": 5,
-                  "minutes": 55,
+                  id: 1,
+                  hours: 5,
+                  minutes: 55,
                 }
               ],
-              "history": [
+              history: [
                 2
               ]
+
 
 
         });
