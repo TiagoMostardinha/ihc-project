@@ -3,11 +3,13 @@
         {
             "name" :"Paracetamol",
             "description" : "Paracetamol is a pain reliever and a fever reducer.",
+            "symptoms": ["headache", "muscle aches", "arthritis", "backache", "toothaches", "colds","fevers"],
             "id":1
         },        
         {
             "name" :"Brufen",
             "description" : "Brufen is a pain deliever.",
+            "symptoms": "inflamation, and fevers.",
             "id":2
         }
     ]
