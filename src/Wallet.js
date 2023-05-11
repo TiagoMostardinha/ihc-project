@@ -1,12 +1,10 @@
 import MyMeds from "./MyMeds.js";
 import useFetch from "./useFetch.js";
 
+import WalletList from "./WalletList.js";
+
 const Wallet = (user) => {
     const { data: medicaments, isPending, error } = useFetch('http://localhost:8000/medicaments');
-    
-    console.log("MEDS",medicaments);
-    console.log("UM",user["user"]["user_meds"]);
-
 
     return (
         <div className="wallet-container flex p-10" >
@@ -18,7 +16,10 @@ const Wallet = (user) => {
                     </button>
                 </div>
 
-                <div className="medicament-item flex items-center justify-between bg-gray-100 p-4">
+                {medicaments && <WalletList medicaments={medicaments} user ={user.user} />}
+
+
+                {/* <div className="medicament-item flex items-center justify-between bg-gray-100 p-4">
                     <div className="flex-grow">
                         <h2 className="text-2xl font-bold text-gray-800">Medicament Title</h2>
                         <p className="text-gray-600">Medicament Description</p>
@@ -27,7 +28,7 @@ const Wallet = (user) => {
                         <span style={{ "--value": 10 }}></span>h
                         <span style={{ "--value": 24 }}></span>m
                     </span>
-                </div>
+                </div> */}
 
 
 

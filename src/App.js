@@ -11,15 +11,12 @@ function App() {
     "user_meds": [
       {
         "id": 1,
-        "hour": ""
-      },
-      2,
-      3
+        "hour": "05:30"
+      }
     ],
     "history": [
-      4
-    ],
-    "id": 1
+      2
+    ]
   }
 
   // let user = null;
@@ -31,7 +28,7 @@ function App() {
         <div className="content">
           <Routes>
             <Route exact path='/' element={<Home />} />
-            <Route exact path='/wallet' element={<Wallet />} />
+            <Route exact path='/wallet' element={<Wallet user={user}/>} />
 
           </Routes>
         </div>

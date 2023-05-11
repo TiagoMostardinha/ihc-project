@@ -4,10 +4,11 @@
             "name" :"Paracetamol",
             "description" : "Paracetamol is a pain reliever and a fever reducer.",
             "id":1
+        },        
+        {
+            "name" :"Brufen",
+            "description" : "Brufen is a pain deliever.",
+            "id":2
         }
-    ],
-    "user":{
-        "name":"John",
-        "id":1
-    }
+    ]
 }
