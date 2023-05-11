@@ -10,6 +10,7 @@ import SearchSol from './SearchSol.js';
 import SignIn from './SignIn.js';
 import AboutUs from './AboutUs.js';
 import LogIn from './LogIn.js';
+import Drug from './Drug.js'
 
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
             <Route exact path='/signin' element={<SignIn />} />
             <Route exact path='/aboutus' element={<AboutUs />} />
             <Route exact path='/login' element={<LogIn />} />
+            <Route exact path='/drug' element={<Drug />} />
           </Routes>
         </div>
         <Footer />
