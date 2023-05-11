@@ -6,6 +6,7 @@ import Wallet from './Wallet.js';
 import SignIn from './SignIn.js';
 import AboutUs from './AboutUs.js';
 import Profile from './ProfileT1.js'
+import LogIn from './LogIn.js';
 
 
 
@@ -39,8 +40,7 @@ function App() {
             <Route exact path='/signin' element={<SignIn />} />
             <Route exact path='/profile' element={<Profile />} />
             <Route exact path='/aboutus' element={<AboutUs />} />
-            
-
+            <Route exact path='/login' element={<LogIn />} />
           </Routes>
         </div>
         <Footer />

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import userImg from './img/user.png';
 import walletImg from './img/wallet.png';
 
-const name = 'Joe';
+const name = 'John';
 
 const NavBar = ({user}) => {
     console.log(user && true);
