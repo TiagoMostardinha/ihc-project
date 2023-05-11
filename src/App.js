@@ -3,6 +3,7 @@ import NavBar from './Navbar.js';
 import Home from './Home.js';
 import Footer from './Footer.js';
 import Wallet from './Wallet.js';
+import Profile from './ProfileT1.js'
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
           <Routes>
             <Route exact path='/' element={<Home />} />
             <Route exact path='/wallet' element={<Wallet />} />
+            <Route exact path='/profile' element={<Profile />} />
 
           </Routes>
         </div>
