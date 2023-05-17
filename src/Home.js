@@ -4,16 +4,17 @@ import card1Img from './img/card1.png';
 import { Link } from 'react-router-dom';
 import useFetch from "./useFetch";
 
-const Home = () => {
+const Home = ({user}) => {
+    console.log(user && true);
     return (
         <div className="home">
             <div className="hero-container">
                 <div className="hero min-h-screen" style={{ backgroundImage: `url(${homeImg})` }}>
                     <div className="hero-overlay bg-opacity-60"></div>
-                    <div className="hero-content text-center text-neutral-content">
-                        <div className="max-w-md">
+                    {!user && <div className="hero-content text-center text-neutral-content">
+                         <div className="max-w-7xl">
                             <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-                            <p className="mb-5">Pharmasysm is a website that offers medication management services for its users. The website is designed to help people manage their medications easily, safely, and efficiently. Pharmasysm provides a platform where users can create a personal profile that contains information about their medications, dosages, and schedules.
+                            <p className="mb-5 text-xl ">Pharmasysm is a website that offers medication management services for its users. The website is designed to help people manage their medications easily, safely, and efficiently. Pharmasysm provides a platform where users can create a personal profile that contains information about their medications, dosages, and schedules.
 
 Once the user has set up their profile, they can easily add new medications, update dosages or schedules, and receive reminders about when to take their medications. The website also offers a range of features that make it easy to track medication usage and avoid missed doses.
 
@@ -21,7 +22,7 @@ Pharmasysm also provides a medication tracking system that allows users to monit
                             <p className="btn btn-primary"><Link to='/'>Get Started</Link></p>
                         </div>
                     </div>
-                </div>
+                }</div>
             </div>
 
             <div className="info-container m-0 p-10 bg-slate-200">

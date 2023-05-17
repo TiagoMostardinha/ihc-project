@@ -42,7 +42,7 @@ function App() {
         <NavBar user={user} />
         <div className="content">
           <Routes>
-            <Route exact path='/' element={<Home />} />
+            <Route exact path='/' element={<Home user={user} />} />
             <Route exact path='/profile1' element={<ProfileT1 />} />
             <Route exact path='/profile2' element={<ProfileT2 />} />
             {/* <Route exact path='/search' element={<Search />} />
