@@ -18,7 +18,7 @@ const Home = () => {
 Once the user has set up their profile, they can easily add new medications, update dosages or schedules, and receive reminders about when to take their medications. The website also offers a range of features that make it easy to track medication usage and avoid missed doses.
 
 Pharmasysm also provides a medication tracking system that allows users to monitor their medication usage over time. This feature helps users keep track of their progress and identify potential problems or issues with their medication regimen. Additionally, the website offers educational resources and information about medications and health conditions, which can be helpful for people who want to learn more about their medications or health.</p>
-                            <p className="btn btn-primary"><Link to='/signin'>Get Started</Link></p>
+                            <p className="btn btn-primary"><Link to='/'>Get Started</Link></p>
                         </div>
                     </div>
                 </div>
