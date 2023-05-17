@@ -1,11 +1,11 @@
 const Drug = () => {
     const medicamento = "Paracetamol";
-    const what = "El medicamento proveniendote de una planta natural";
-    const commonUse = "Perfecto para aliviar el dolor de cabeza";
-    const indications = "Tomar siempre después de cada comida";
-    const contraindications = "No consumir en caso de estar embarazada";
-    const warning = "El medicamento debe conservarse en un lucar fresco y seco";
-    const adverseEffects = "Puede probocar un breve dolor estomacal en algunos pacientes";
+    const what = "The medicine from a natural plant";
+    const commonUse = "Perfect for headache relief";
+    const indications = "Always take after each meal";
+    const contraindications = "Do not consume if you are pregnant";
+    const warning = "The medicine should be stored in a cool and dry place.";
+    const adverseEffects = "May cause brief stomach pain in some patients";
     return (
         <div className="flex justify-center items-center h-auto m-20">
             <div className="flex flex-col w-full">

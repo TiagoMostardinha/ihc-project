@@ -133,8 +133,8 @@ const SignIn = () => {
                     <option data-value='{"gender":"male"}'>Male</option>
                 </select>
             </div>
-            <div class="container mx-lg flex justify-center pb-4 pl-24">
-                <Link to='/logged'><button onClick={handleClick} class="btn">Sign In</button></Link>
+            <div class="container mx-lg flex justify-center pb-4 pl-auto">
+                <Link to='/'><button onClick={handleClick} class="btn">Sign In</button></Link>
                 
             </div>
         </div>
