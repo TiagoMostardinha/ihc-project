@@ -2,9 +2,9 @@ import profilePic from './img/profilePicture.jpg';
 import editPencil from './img/pencil.svg';
 
 
-const Profile = () => {
+const Profile = ({ user }) => {
 
-
+  console.log(user);
 
   return (
     <div className="min-h-1000 bg-gray-100 p-5">
@@ -13,7 +13,9 @@ const Profile = () => {
           <div className="col-span-1">
             <div className="flex items-center mb-6">
               <span className="text-5xl font-bold text-violet">Profile Information</span>
-              <img src={editPencil} alt="edit" className="w-8 h-8 ml-10" onClick={() => console.log("ELAH")}/>
+              <span className="bg-white hover:bg-gray-300 text-black font-semibold py-2 px-4 rounded-full border border-white hover:border-white">
+                <img src={editPencil} alt="edit" className="w-8 h-8" onClick={() => console.log("ELAH")} />
+              </span>
             </div>
 
 

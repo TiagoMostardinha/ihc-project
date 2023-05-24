@@ -34,6 +34,7 @@ function App() {
     user = JSON.parse(localStorage.getItem("user"));
   }
 
+  const currentRoute = window.location.pathname;
 
   return (
     <Router>
@@ -43,11 +44,9 @@ function App() {
           <Routes>
             <Route exact path='/' element={<Home user={user} />} />
             <Route exact path='/profile' element={<Profile />} />
-            {/* <Route exact path='/search' element={<Search />} />
-            <Route exact path='/searchsol' element={<SearchSol />} /> */}
             <Route exact path='/signin' element={<SignIn />} />
-            <Route exact path='/aboutus' element={<AboutUs />} />
             <Route exact path='/login' element={<LogIn />} />
+            <Route exact path='/aboutus' element={<AboutUs />} />
             <Route exact path='/wallet' element={<Wallet fuser={fuser}/>} />
             <Route exact path='/drug' element={<Drug />} />
             <Route exact path='/search' element={<Search_Tiago />} />
