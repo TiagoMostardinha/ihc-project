@@ -4,12 +4,10 @@ import Home from './Home.js';
 import Footer from './Footer.js';
 import Wallet from './Wallet.js';
 import Search from './Search.js';
-import SearchSol from './SearchSol.js';
 import SignIn from './SignIn.js';
 import AboutUs from './AboutUs.js';
 import LogIn from './LogIn.js';
 import Drug from './Drug.js'
-import Search_Tiago from './Search_Tiago.js';
 import medicamentsData from './medicaments.js';
 import Profile from './Profile.js';
 

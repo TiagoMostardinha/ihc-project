@@ -1,9 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from 'react';
 
 const Search = () => {
     const medicaments = JSON.parse(localStorage.getItem("medicaments"));
     const [filteredMedicaments, setFilteredMedicaments] = React.useState(medicaments);
+    const [selectedSymptoms, setSelectedSymptoms] = useState([]);
+
 
     const textSearch = () => {
         const input = document.getElementById("textSearch");
@@ -18,6 +21,44 @@ const Search = () => {
         const filteredMedicaments = medicaments.filter((medicament) => filteredNames.includes(medicament.name));
         setFilteredMedicaments(filteredMedicaments);
     };
+
+    const handleCheckboxChange = (event) => {
+        const symptom = event.target.value;
+        const isChecked = event.target.checked;
+
+        if (isChecked) {
+            setSelectedSymptoms((prevState) => [...prevState, symptom]);
+        } else {
+            setSelectedSymptoms((prevState) => prevState.filter((s) => s !== symptom));
+        }
+    };
+
+    useEffect(() => {
+        if (selectedSymptoms.length === 0) {
+            setFilteredMedicaments(medicaments);
+            return;
+        }
+    
+        const hasOtherSelected = selectedSymptoms.includes("other");
+        const predefinedSymptoms = ['fever', 'backache', 'indigestion', 'heartburn', 'insomnia', 'headache', 'inflammation'];
+    
+        const updatedFilteredMedicaments = medicaments.filter((medicament) => {
+            if (hasOtherSelected) {
+                const otherSymptoms = medicament.symptoms.filter((symptom) => !predefinedSymptoms.includes(symptom));
+                if (otherSymptoms.length > 0) {
+                    return true;
+                }
+            }
+    
+            return selectedSymptoms.every((symptom) => {
+                return medicament.symptoms.includes(symptom);
+            });
+        });
+    
+        setFilteredMedicaments(updatedFilteredMedicaments);
+    }, [selectedSymptoms, medicaments]);
+
+
 
     return (
         <div className="min-h-screen">
@@ -36,51 +77,58 @@ const Search = () => {
                     <div className="flex flex-row space-x-4">
                         <div className="row search-container flex justify-center items-center h-auto space-x-16">
                             <div className="flex flex-row space-x-4">
-                                <div className="form-control">
+                                <div className="form-control" id="fevers">
                                     <label className="">
-                                        <input type="checkbox" />
+                                        <input type="checkbox" value="fevers" onChange={handleCheckboxChange} />
+                                        <span className="checkbox-mark"></span>
+                                        <span className="ml-1">Fevers</span>
+                                    </label>
+                                </div>
+                                <div className="form-control" id="backache">
+                                    <label className="">
+                                        <input type="checkbox" value="backache" onChange={handleCheckboxChange} />
                                         <span className="checkbox-mark"></span>
                                         <span className="ml-1">Back Pain</span>
                                     </label>
                                 </div>
-                                <div className="form-control">
+                                <div className="form-control" id="indigestion">
                                     <label className="">
-                                        <input type="checkbox" />
-                                        <span className="checkbox-mark"></span>
-                                        <span className="ml-1">Nauseas</span>
-                                    </label>
-                                </div>
-                                <div className="form-control">
-                                    <label className="">
-                                        <input type="checkbox" />
-                                        <span className="checkbox-mark"></span>
-                                        <span className="ml-1">Diarrhea</span>
-                                    </label>
-                                </div>
-                                <div className="form-control">
-                                    <label className="">
-                                        <input type="checkbox" />
-                                        <span className="checkbox-mark"></span>
-                                        <span className="ml-1">Acid Reflux</span>
-                                    </label>
-                                </div>
-                                <div className="form-control">
-                                    <label className="">
-                                        <input type="checkbox" />
-                                        <span className="checkbox-mark"></span>
-                                        <span className="ml-1">Stomach Ulcers</span>
-                                    </label>
-                                </div>
-                                <div className="form-control">
-                                    <label className="">
-                                        <input type="checkbox" />
+                                        <input type="checkbox" value="indigestion" onChange={handleCheckboxChange} />
                                         <span className="checkbox-mark"></span>
                                         <span className="ml-1">Indigestion</span>
                                     </label>
                                 </div>
-                                <div className="form-control">
+                                <div className="form-control" id="heartburn">
                                     <label className="">
-                                        <input type="checkbox" />
+                                        <input type="checkbox" value="heartburn" onChange={handleCheckboxChange} />
+                                        <span className="checkbox-mark"></span>
+                                        <span className="ml-1">Heartburn</span>
+                                    </label>
+                                </div>
+                                <div className="form-control" id="insomnia">
+                                    <label className="">
+                                        <input type="checkbox" value="insomnia" onChange={handleCheckboxChange} />
+                                        <span className="checkbox-mark"></span>
+                                        <span className="ml-1">Acid Reflux</span>
+                                    </label>
+                                </div>
+                                <div className="form-control" id="headache">
+                                    <label className="">
+                                        <input type="checkbox" value="headache" onChange={handleCheckboxChange} />
+                                        <span className="checkbox-mark"></span>
+                                        <span className="ml-1">Headache</span>
+                                    </label>
+                                </div>
+                                <div className="form-control" id="inflammation">
+                                    <label className="">
+                                        <input type="checkbox" value="inflammation" onChange={handleCheckboxChange} />
+                                        <span className="checkbox-mark"></span>
+                                        <span className="ml-1">Inflammation</span>
+                                    </label>
+                                </div>
+                                <div className="form-control" id="">
+                                    <label className="">
+                                        <input type="checkbox" value="others" onChange={handleCheckboxChange} />
                                         <span className="checkbox-mark"></span>
                                         <span className="ml-1">+ Others</span>
                                     </label>
