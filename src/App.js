@@ -13,7 +13,6 @@ import Search_Tiago from './Search_Tiago.js';
 import medicamentsData from './medicaments.js';
 import Profile from './Profile.js';
 
-
 function App() {
   let fuser = {
     "name": "John",

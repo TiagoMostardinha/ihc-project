@@ -4,7 +4,9 @@ import editPencil from './img/pencil.svg';
 
 const Profile = ({ user }) => {
 
-  console.log(user);
+  if(user !== undefined) {
+    console.log(user)
+  }
 
   return (
     <div className="min-h-1000 bg-gray-100 p-5">
@@ -19,7 +21,7 @@ const Profile = ({ user }) => {
             </div>
 
 
-            <ul className="space-y-4 text-lg">
+            <ul className="space-y-4 text-xl">
               <li><strong>Name:</strong> John Doe</li>
               <li><strong>Email:</strong> john.doe@example.com</li>
               <li><strong>Password:</strong> ••••••••</li>
