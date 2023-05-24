@@ -12,6 +12,8 @@ import AboutUs from './AboutUs.js';
 import LogIn from './LogIn.js';
 import Drug from './Drug.js'
 import Search_Tiago from './Search_Tiago.js';
+import medicamentsData from './medicaments.js';
+import Profile from './Profile.js';
 
 
 function App() {
@@ -33,7 +35,6 @@ function App() {
   if (localStorage.getItem("user")) {
     user = JSON.parse(localStorage.getItem("user"));
   }
-  
 
 
   return (
@@ -45,6 +46,7 @@ function App() {
             <Route exact path='/' element={<Home user={user} />} />
             <Route exact path='/profile1' element={<ProfileT1 />} />
             <Route exact path='/profile2' element={<ProfileT2 />} />
+            <Route exact path='/profile' element={<Profile />} />
             {/* <Route exact path='/search' element={<Search />} />
             <Route exact path='/searchsol' element={<SearchSol />} /> */}
             <Route exact path='/signin' element={<SignIn />} />
