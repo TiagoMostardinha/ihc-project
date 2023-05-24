@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import useFetch from './useFetch';
 import { Link } from 'react-router-dom';
 
 const Search_Tiago = () => {
-  const { data: medicaments, isPending, error } = useFetch('http://localhost:8000/medicaments');
-  console.log(medicaments);
+  let medicaments = [];
   const [selectedSymptom, setSelectedSymptom] = useState('');
   const [filteredMeds, setFilteredMeds] = useState([]);
 
@@ -28,7 +26,7 @@ const Search_Tiago = () => {
   return (
     <div className="min-h-screen">
     <div className="search-container p-10">
-      <div className="container mx-auto m-30">
+      <div className="container mx-auto m-30 px-4">
         <h2 className="text-3xl font-bold mb-4">Search</h2>
         <div className="flex items-center justify-center">
           <div className="flex-1 mr-4">

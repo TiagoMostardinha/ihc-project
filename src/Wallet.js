@@ -1,11 +1,11 @@
 import HistoryList from "./HistoryList.js";
-import useFetch from "./useFetch.js";
+import medicamentsData from "./medicaments.js";
 
 import WalletList from "./WalletList.js";
 
 const Wallet = (fuser) => {
-    const { data: medicaments, isPending, error } = useFetch('http://localhost:8000/medicaments');
-    console.log(fuser);
+    
+    const medicaments = medicamentsData.medicaments;
 
     return (
         <div className="wallet-container flex p-10" >

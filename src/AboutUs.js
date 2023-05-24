@@ -2,10 +2,8 @@
 import tiagoImg from './img/tiago.png';
 import fabioImg from './img/fabio.png';
 import pabloImg from './img/pablo.png';
-import NavBarLogged from './NavbarLogged.js';
 
 const AboutUs = () => {
-    <NavBarLogged />
     return (
         <div className="aboutus py-16">
             <div>

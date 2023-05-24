@@ -3,8 +3,6 @@ import NavBar from './Navbar.js';
 import Home from './Home.js';
 import Footer from './Footer.js';
 import Wallet from './Wallet.js';
-import ProfileT1 from './ProfileT1.js'
-import ProfileT2 from './ProfileT2.js';
 import Search from './Search.js';
 import SearchSol from './SearchSol.js';
 import SignIn from './SignIn.js';
@@ -12,6 +10,8 @@ import AboutUs from './AboutUs.js';
 import LogIn from './LogIn.js';
 import Drug from './Drug.js'
 import Search_Tiago from './Search_Tiago.js';
+import medicamentsData from './medicaments.js';
+import Profile from './Profile.js';
 
 
 
@@ -35,7 +35,6 @@ function App() {
   if (localStorage.getItem("user")) {
     user = JSON.parse(localStorage.getItem("user"));
   }
-  
 
 
   return (
@@ -45,8 +44,7 @@ function App() {
         <div className="content">
           <Routes>
             <Route exact path='/' element={<Home user={user} />} />
-            <Route exact path='/profile1' element={<ProfileT1 />} />
-            <Route exact path='/profile2' element={<ProfileT2 />} />
+            <Route exact path='/profile' element={<Profile />} />
             {/* <Route exact path='/search' element={<Search />} />
             <Route exact path='/searchsol' element={<SearchSol />} /> */}
             <Route exact path='/signin' element={<SignIn />} />

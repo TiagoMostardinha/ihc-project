@@ -65,4 +65,3 @@ const medicaments = [
   localStorage.setItem("medicaments", JSON.stringify(medicaments));
 
   export default medicaments;
-  

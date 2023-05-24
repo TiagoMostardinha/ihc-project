@@ -1,4 +1,4 @@
-import user from './img/user.png';
+import user from './img/user.svg';
 
 const ProfileT2 = () => {
     function maskPassword(password) {
