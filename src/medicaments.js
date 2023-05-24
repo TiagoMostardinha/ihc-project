@@ -68,9 +68,6 @@ const medicaments = [
   // Add more medicines below...
 ];
 
-module.exports = medicaments;
-
-
   localStorage.setItem("medicaments", JSON.stringify(medicaments));
 
   export default medicaments;
