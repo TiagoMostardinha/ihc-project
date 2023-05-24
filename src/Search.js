@@ -20,7 +20,7 @@ const Search = () => {
     };
 
     return (
-        <div className="h-screen">
+        <div className="min-h-screen">
             <div className="flex flex-col items-center space-y-4 py-10">
                 <div className="row search-container flex justify-center items-center">
                     <div className="form-control">
