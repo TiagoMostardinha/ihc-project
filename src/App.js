@@ -14,6 +14,8 @@ import Drug from './Drug.js'
 import Search_Tiago from './Search_Tiago.js';
 
 
+
+
 function App() {
   let fuser = {
     "name": "John",
@@ -52,7 +54,7 @@ function App() {
             <Route exact path='/login' element={<LogIn />} />
             <Route exact path='/wallet' element={<Wallet fuser={fuser}/>} />
             <Route exact path='/drug' element={<Drug />} />
-            <Route exact path='/search' element={<Search_Tiago />} />
+            <Route exact path='/search' element={<Search/>} />
           </Routes>
         </div>
         <Footer />

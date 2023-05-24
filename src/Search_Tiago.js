@@ -26,6 +26,7 @@ const Search_Tiago = () => {
     };
 
   return (
+    <div className="min-h-screen">
     <div className="search-container p-10">
       <div className="container mx-auto m-30">
         <h2 className="text-3xl font-bold mb-4">Search</h2>
@@ -69,6 +70,7 @@ const Search_Tiago = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }
