@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 
 
 const SignIn = () => {
-
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -18,10 +17,21 @@ const SignIn = () => {
             return;
         }
 
-        const user = { name, email, password, country };
-        console.log(user);
+        localStorage.setItem('user', JSON.stringify(
+            {
+                name: name,
+                email: email,
+                password: password,
+                country: country,
+                cellphone: "",
+                weight: 0,
+                height: 0,
+                sex: "",
+                allergies: [],
+            }
+        ));
 
-        navigate('/profile', { user: user });
+        navigate('/profile');
     }
 
     return (
@@ -36,7 +46,7 @@ const SignIn = () => {
                         <label className="label">
                             <span className="label-text text-xl">Name</span>
                         </label>
-                        <input type="text" placeholder="email" className="input input-bordered text-lg"
+                        <input type="text" placeholder="name" className="input input-bordered text-lg"
                             required
                             value={name}
                             onChange={(e) => setName(e.target.value)}

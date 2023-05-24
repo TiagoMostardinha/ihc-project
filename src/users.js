@@ -1,4 +1,4 @@
-const users = [
+var allUsers = [
     {
         name: "John Doe",
         email: "john.doe@ua.pt",
@@ -12,4 +12,4 @@ const users = [
         medical_history: []
     },
 ];
-export default users;
+export default allUsers;
