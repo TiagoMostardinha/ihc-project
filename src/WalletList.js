@@ -1,5 +1,4 @@
 const WalletList = ({ medicaments, user }) => {
-    console.log("AQUI",user);
     const userMedsIds = user.meds.map(med => med.id);
     const filteredMeds = medicaments.filter(med => userMedsIds.includes(med.id));
 

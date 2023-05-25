@@ -4,7 +4,7 @@ const HistoryList = ({ medicaments, user }) => {
     console.log(userMedsIds);
 
     return (
-        <div className="history-item m-2 border-b-2 border-gray-200 p-2">
+        <div className="history-item\ border-b-2 border-gray-200 p-2">
             {userMedsIds.map((medicament) => (
                 <div className="h-item" key={medicament.name}>
                     <h2 className="text-lg font-bold text-gray-900">{medicament.name}</h2>

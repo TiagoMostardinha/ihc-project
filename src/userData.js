@@ -14,7 +14,12 @@ const userData = [
               id: 1,
               hours: 12,
               minutes: 55,  
+            },            {
+              id: 3,
+              hours: 8,
+              minutes: 0,  
             }
+
           ],
         history: [
             {

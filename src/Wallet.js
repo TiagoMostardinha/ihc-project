@@ -26,7 +26,7 @@ const Wallet = () => {
             </div>
             <div className="flex-1 w-1/3">
                 <div className="card shadow-2xl bg-base-100 p-12 m-12 ">
-                    <h1 className="text-5xl font-bold mb-8 text-violet border-b-2 border-gray-500 pb-5">History</h1>
+                    <h1 className="text-5xl font-bold text-violet border-b-2 border-gray-500 pb-5">History</h1>
                     {medicaments && <HistoryList medicaments={medicaments} user={user} />}
                 </div>
             </div>
