@@ -10,29 +10,15 @@ import LogIn from './LogIn.js';
 import Drug from './Drug.js'
 import medicamentsData from './medicaments.js';
 import Profile from './Profile.js';
+import AddMedicament from './AddMedicament.js';
 
 function App() {
-  let fuser = {
-    "name": "John",
-    "user_meds": [
-      {
-        "id": 1,
-        "hours": 12,
-        "minutes": 55,  
-      }
-    ],
-    "history": [
-      2
-    ]
-  }
-
-
   let user = null;
   if (localStorage.getItem("user")) {
     user = JSON.parse(localStorage.getItem("user"));
   }
 
-  const currentRoute = window.location.pathname;
+  console.log(user);
 
   return (
     <Router>
@@ -45,7 +31,8 @@ function App() {
             <Route exact path='/signin' element={<SignIn />} />
             <Route exact path='/login' element={<LogIn />} />
             <Route exact path='/aboutus' element={<AboutUs />} />
-            <Route exact path='/wallet' element={<Wallet fuser={fuser}/>} />
+            <Route exact path='/add' element={<AddMedicament user={user} />} />
+            <Route exact path='/wallet' element={<Wallet user={user}/>} />
             <Route path="/drug/:id" element={<Drug />} />
             <Route exact path='/search' element={<Search/>} />
           </Routes>

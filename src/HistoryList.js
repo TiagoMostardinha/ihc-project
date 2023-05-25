@@ -1,15 +1,14 @@
-const HistoryList = ({ medicaments, fuser }) => {
+const HistoryList = ({ medicaments, user }) => {
 
-    const userMedsIds = fuser.history.map(med => med);
-    const filteredMeds = medicaments.filter(med => userMedsIds.includes(med.id));
+    const userMedsIds = user.history.map(med => med);
+    console.log(userMedsIds);
 
     return (
-        <div className="history-item m-2 border-b-2 border-gray-200 p-2">
-            {filteredMeds.map((medicament) => (
-                <div className="h-item" key={medicament.id}>
+        <div className="history-item\ border-b-2 border-gray-200 p-2">
+            {userMedsIds.map((medicament) => (
+                <div className="h-item" key={medicament.name}>
                     <h2 className="text-lg font-bold text-gray-900">{medicament.name}</h2>
-                    <p>{medicament.description}</p>
-                    {/* <p className="text-right">{user.history.find(med => med === medicament.id).date}</p> */}
+                    <p>Last taken at:{medicament.hours}</p>
                 </div>
             ))}
         </div>

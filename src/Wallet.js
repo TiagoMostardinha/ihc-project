@@ -1,49 +1,37 @@
 import HistoryList from "./HistoryList.js";
 import medicamentsData from "./medicaments.js";
+import { useState } from "react";
 
 import WalletList from "./WalletList.js";
+import { useNavigate } from 'react-router-dom';
 
-const Wallet = (fuser) => {
-    
-    const medicaments = medicamentsData.medicaments;
+const Wallet = () => {
+    const [user, setUser] = useState(() => {
+        const userData = localStorage.getItem('user');
+        return userData ? JSON.parse(userData) : '';
+    });
 
+    const navigate = useNavigate();
+
+
+    let medicaments = medicamentsData;
     return (
-        <div className="wallet-container flex p-10" >
+        <div className="min-h-screen flex p-10" >
             <div className="flex-2 w-2/3 mr-10">
-                <div className="flex items-center justify-between bg-gray-200 p-4">
-                    <h2 className="text-2xl font-bold text-gray-800">Medicaments</h2>
-                    <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">
+                <div className="card shadow-2xl bg-base-100 p-12 min-h-full">
+                    <h1 className="text-6xl font-bold mb-8 text-violet border-b-2 border-gray-500 pb-5">My Medicaments</h1>
+
+                    {medicaments && <WalletList medicaments={medicaments} user={user} />}
+                    <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded" onClick={() => navigate('/search')}>
                         + Add
                     </button>
                 </div>
-
-                {medicaments && <WalletList medicaments={medicaments} fuser ={fuser.fuser} />}
-
-
-                {/* <div className="medicament-item flex items-center justify-between bg-gray-100 p-4">
-                    <div className="flex-grow">
-                        <h2 className="text-2xl font-bold text-gray-800">Medicament Title</h2>
-                        <p className="text-gray-600">Medicament Description</p>
-                    </div>
-                    <span className="countdown font-mono text-2xl">
-                        <span style={{ "--value": 10 }}></span>h
-                        <span style={{ "--value": 24 }}></span>m
-                    </span>
-                </div> */}
-
-
-
             </div>
-            <div className="flex-1 w-1/3 shadow-2xl rounded-lg bg-gray-0">
-                <h1 className="text-2xl font-bold text-center text-gray-900 border-b-2 border-gray-900 p-2">History</h1>
-                
-                {medicaments && <HistoryList medicaments={medicaments} fuser ={fuser.fuser} />}
-                
-                {/* <div className="history-item m-2 border-b-2 border-gray-200 p-2">
-                    <h2 className="text-lg font-bold text-gray-900">Paracetamol</h2>
-                    <p>some description...</p>
-                    <p className="text-right">4 march 2023</p>
-                </div> */}
+            <div className="flex-1 w-1/3">
+                <div className="card shadow-2xl bg-base-100 p-12 m-12 ">
+                    <h1 className="text-5xl font-bold text-violet border-b-2 border-gray-500 pb-5">History</h1>
+                    {medicaments && <HistoryList medicaments={medicaments} user={user} />}
+                </div>
             </div>
         </div>
     );

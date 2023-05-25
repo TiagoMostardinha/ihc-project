@@ -23,15 +23,22 @@ const SignIn = () => {
                 email: email,
                 password: password,
                 country: country,
-                cellphone: "",
+                telephone: "",
                 weight: 0,
                 height: 0,
                 sex: "",
                 allergies: [],
+                meds: [            {
+                    id: 1,
+                    hours: 12,
+                    minutes: 55,  
+                  }
+                ],
             }
         ));
 
         navigate('/profile');
+        document.location.reload();
     }
 
     return (
