@@ -1,30 +1,54 @@
+import { useState } from "react";
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
+
 const LogIn = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const navigate = useNavigate();
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        const user = { email, password };
+        console.log(user);
+        navigate('/', { user: user });
+
+    }
+
     return (
-        <div className="login">
-            <div class="flex justify-center pt-10">
-                <h1 className="text-6xl">Login</h1>
-            </div>
-            <div class="container mx-sm flex justify-center pt-8 pb-4 pl-auto">
-                <h1 className="text-2xl" style={{ marginTop: '40px' }}>E-mail</h1>
-            </div>
-            <div class="container mx-lg flex justify-center pb-4 pl-auto">
-                <input type="text" placeholder="" className="input input-bordered input-sm w-1/2" />
-            </div>
-            <div class="container mx-sm flex justify-center pl-auto pt-4 pb-4">
-                <h1 className="text-2xl">Password</h1>
-            </div>
-            <div class="container mx-lg flex justify-center pb-2 pl-auto">
-                <input type="text" placeholder="" className="input input-bordered input-sm w-1/2" />
-            </div>
-            <div class="container mx-lg flex justify-center pt-4 pl-auto">
-                <Link to='/'><button class="btn">Log In</button></Link>
-            </div>
-            <div class="container mx-lg flex justify-center pt-2 pl-auto">
-                or
-            </div>
-            <div class="container mx-lg flex justify-center pt-2 pb-56 pl-auto">
-                <Link to='/signin'><button class="btn">Sign in</button></Link>
+        <div className="hero min-h-1000 bg-base-200 flex items-center justify-center">
+            <div className="card flex-shrink-0 w-full max-w-xl shadow-2xl bg-base-100 p-8 m-20">
+                <form
+                    className="card-body text-center"
+                    onSubmit={handleSubmit}
+                >
+                    <h1 className="text-6xl font-bold mb-8">Login In</h1>
+                    <div className="form-control mb-4">
+                        <label className="label">
+                            <span className="label-text text-xl">Email</span>
+                        </label>
+                        <input type="text" placeholder="email" className="input input-bordered text-lg"
+                            required
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                    </div>
+                    <div className="form-control mb-8">
+                        <label className="label">
+                            <span className="label-text text-xl">Password</span>
+                        </label>
+                        <input type="password" placeholder="password" className="input input-bordered text-lg"
+                            required
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                    </div>
+                    <div className="form-control mt-6">
+                        <button className="btn btn-primary text-xl">Login</button>
+                    </div>
+                </form>
             </div>
         </div>
     );

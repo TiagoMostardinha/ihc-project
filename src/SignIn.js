@@ -1,143 +1,100 @@
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
+
+
 const SignIn = () => {
-    const [user, setUser] = useState({
-        "name": "John",
-        "user_meds": [
-          {
-            "id": 1,
-            "hours": 5,
-            "minutes": 55,
-          }
-        ],
-        "history": [
-          2
-        ],
-        uname: '',
-        email: '',
-        password: '',
-        country: '',
-        weight: '',
-        height: '',
-        telephone: '',
-        sex: '',
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [country, setCountry] = useState('');
+    const navigate = useNavigate();
 
-      });
-    
-      const handleClick = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        const genderSelectElement = document.getElementById("genderSelect");
-        const selectedOption = genderSelectElement.options[genderSelectElement.selectedIndex];
-        const selectedValue = JSON.parse(selectedOption.getAttribute("data-value"));
-        // Update the user state with the new information entered in the form
-        setUser({
-            "name": "John",
-            "user_meds": [
-              {
-                "id": 1,
-                "hours": 5,
-                "minutes": 55,
-              }
-            ],
-            "history": [
-              2
-            ],
-            uname: document.getElementById('uname').value,
-            email: document.getElementById('email').value,
-            password: document.getElementById('password').value,
-            country: document.getElementById('country').value,
-            weight: document.getElementById('weight').value,
-            height: document.getElementById('height').value,
-            telephone: document.getElementById('telephone').value,
-            allergies: document.getElementById('allergies').value,
-            gender: selectedValue.gender,
 
+        if(country === '') {
+            alert('Please select a country');
+            return;
+        }
 
+        localStorage.setItem('user', JSON.stringify(
+            {
+                name: name,
+                email: email,
+                password: password,
+                country: country,
+                cellphone: "",
+                weight: 0,
+                height: 0,
+                sex: "",
+                allergies: [],
+            }
+        ));
 
-
-        });
-      
-        // Log the updated user object to the console
-        localStorage.setItem("user", JSON.stringify(user));
-        window.location.replace("http://localhost:3000/");
-      };
-      useEffect(() => {
-        // Log the updated user object to the console whenever the state changes
-        localStorage.setItem("user", JSON.stringify(user));
-        const userFromStorage = JSON.parse(localStorage.getItem("user"));
-        console.log(userFromStorage);
-      }, [user]);
-    
+        navigate('/profile');
+    }
 
     return (
-        <div className="signin">
-            <div class="flex justify-center">
-                <h1 className="text-5xl">Sign In</h1>
-            </div>
-            <div class="container mx-sm pl-96 pt-16 pb-2">
-                <h1>Name</h1>
-            </div>
-            <div class="container mx-lg flex justify-center pb-4 pl-24">
-                <input type="text" placeholder="" className="input input-bordered input-sm w-3/5" id='uname' />
-            </div>
-            <div class="container mx-sm pl-96 pt-4 pb-2">
-                <h1>E-mail</h1>
-            </div>
-            <div class="container mx-lg flex justify-center pb-4 pl-24">
-                <input type="text" placeholder="" className="input input-bordered input-sm w-3/5" id='email' />
-            </div>
-            <div class="container mx-sm pl-96 pt-4 pb-2">
-                <h1>Password</h1>
-            </div>
-            <div class="container mx-lg flex justify-center pb-4 pl-24">
-                <input type="password" placeholder="" className="input input-bordered input-sm w-3/5" id='password' />
-            </div>
-            <div class="container mx-sm pl-96 pt-4 pb-2">
-                <h1>Country</h1>
-            </div>
-            <div class="container mx-lg flex justify-center pb-4 pl-24"> 
-                <input type="text" placeholder="" className="input input-bordered input-sm w-3/5" id='country'/>
-            </div>
-            <div class="container mx-sm pl-96 pt-4 pb-2">
-                <h1>Weight (in kg)</h1>
-            </div>
-            <div class="container mx-lg flex justify-center pb-4 pl-24">
-                <input type="text" placeholder="" className="input input-bordered input-sm w-3/5" id='weight'/>
-            </div>
-            <div class="container mx-sm pl-96 pt-4 pb-2">
-                <h1>Height (in cm)</h1>
-            </div>
-            <div class="container mx-lg flex justify-center pb-4 pl-24">
-                <input type="text" placeholder="" className="input input-bordered input-sm w-3/5" id='height'/>
-            </div>
-            <div class="container mx-sm pl-96 pt-4 pb-2">
-                <h1>Telephone</h1>
-            </div>
-            <div class="container mx-lg flex justify-center pb-4 pl-24">
-                <input type="text" placeholder="" className="input input-bordered input-sm w-3/5" id='telephone'/>
-            </div>
-            <div class="container mx-sm pl-96 pt-4 pb-2">
-                <h1>Allergies</h1>
-            </div>
-            <div class="container mx-lg flex justify-center pb-4 pl-24">
-                <input type="text" placeholder="" className="input input-bordered input-sm w-3/5" id='allergies'/>
-            </div>
-            <div class="container mx-sm pl-96 pt-4 pb-2">
-                <h1>Sex</h1>
-            </div>
-            <div class="container mx-lg pl-96 pb-4">
-                <select class="select select-bordered select-sm w-full max-w-xs" id="genderSelect">
-                    <option disabled selected>Select One</option>
-                    <option data-value='{"gender":"female"}'>Female</option>
-                    <option data-value='{"gender":"male"}'>Male</option>
-                </select>
-            </div>
-            <div class="container mx-lg flex justify-center pb-4 pl-auto">
-                <Link to='/'><button onClick={handleClick} class="btn">Sign In</button></Link>
-                
+        <div className="hero min-h-1000 bg-base-200 flex items-center justify-center">
+            <div className="card flex-shrink-0 w-full max-w-xl shadow-2xl bg-base-100 p-8 m-20">
+                <form
+                    className="card-body text-center"
+                    onSubmit={handleSubmit}
+                >
+                    <h1 className="text-6xl font-bold mb-8">Sign In</h1>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text text-xl">Name</span>
+                        </label>
+                        <input type="text" placeholder="name" className="input input-bordered text-lg"
+                            required
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                        />
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text text-xl">Email</span>
+                        </label>
+                        <input type="text" placeholder="email" className="input input-bordered text-lg" 
+                            required
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text text-xl">Password</span>
+                        </label>
+                        <input type="password" placeholder="password" className="input input-bordered text-lg" 
+                            required
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text text-xl">Country</span>
+                        </label>
+                        <select className="select select-bordered w-full text-lg"
+                            value={country}
+                            onChange={(e) => setCountry(e.target.value)}
+                        >
+                            <option value="">Select a country</option>
+                            <option value="usa">Portugal</option>
+                            <option value="canada">Canada</option>
+                            <option value="uk">United Kingdom</option>
+                            <option value="australia">Australia</option>
+                            <option value="germany">Germany</option>
+                        </select>
+                    </div>
+                    <div className="form-control mt-6">
+                        <button className="btn btn-primary text-xl">Sign In</button>
+                    </div>
+                </form>
             </div>
         </div>
     );
 }
+
 export default SignIn;

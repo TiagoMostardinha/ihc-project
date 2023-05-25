@@ -1,9 +1,23 @@
 import profilePic from './img/profilePicture.jpg';
 import editPencil from './img/pencil.svg';
+import { useState } from 'react';
+import ProfileInfo from './ProfileInfo';
+import ProfileEdit from './ProfileEdit';
 
 
 const Profile = () => {
+  const [user, setUser] = useState(() => {
+    const userData = localStorage.getItem('user');
+    return userData ? JSON.parse(userData) : '';
+  });
+  const [isEditing, setIsEditing] = useState(false);
 
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsEditing(!isEditing);
+    setUser(JSON.parse(localStorage.getItem('user')));
+  }
 
 
   return (
@@ -13,22 +27,13 @@ const Profile = () => {
           <div className="col-span-1">
             <div className="flex items-center mb-6">
               <span className="text-5xl font-bold text-violet">Profile Information</span>
-              <img src={editPencil} alt="edit" className="w-8 h-8 ml-10" onClick={() => console.log("ELAH")}/>
+              <span className="bg-white hover:bg-gray-300 text-black font-semibold py-2 px-4 rounded-full border border-white hover:border-white">
+                <img src={editPencil} alt="edit" className="w-8 h-8" onClick={handleSubmit} />
+              </span>
             </div>
 
-
-            <ul className="space-y-4 text-lg">
-              <li><strong>Name:</strong> John Doe</li>
-              <li><strong>Email:</strong> john.doe@example.com</li>
-              <li><strong>Password:</strong> ••••••••</li>
-              <li><strong>Cellpfone:</strong> +351 94353546</li>
-              <li><strong>Country:</strong> Portugal</li>
-              <li><strong>Sex:</strong> Male</li>
-              <li><strong>Weight:</strong> 70 kg</li>
-              <li><strong>Height:</strong> 180 cm</li>
-              <li><strong>Allergies:</strong> None</li>
-            </ul>
-
+            {isEditing ? <ProfileEdit onSubmit={handleSubmit}/> : <ProfileInfo user={user} />}
+            
           </div>
           <div className="col-span-1">
             <div className="grid grid-rows-2 gap-4 h-full">
