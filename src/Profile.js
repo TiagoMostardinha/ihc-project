@@ -44,8 +44,10 @@ const Profile = () => {
                 <div className="card">
                   <h2 className="text-2xl font-bold mb-4 text-violet">Medical History</h2>
                   <ul className="space-y-2">
-                    <li>Medical History 1</li>
-                    <li>Medical History 2</li>
+                    <li><h2 className="text-lg font-bold text-gray-900">Paracetamol</h2>
+                    <p>Last taken at: 12:55</p></li>
+                    <li><h2 className="text-lg font-bold text-gray-900">Brufen</h2>
+                    <p>Last taken at: 8:00</p></li>
                   </ul>
                 </div>
               </div>

@@ -17,7 +17,7 @@ const userData = [
             },            {
               id: 3,
               hours: 8,
-              minutes: 0,  
+              minutes: 50,  
             }
 
           ],
