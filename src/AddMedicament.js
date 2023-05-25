@@ -32,6 +32,8 @@ const AddMedicament = () => {
             meds: [...user.meds, newMedicament],
         }
 
+        localStorage.setItem('user', JSON.stringify(newUser));
+
         navigate('/wallet');        
     }
 
