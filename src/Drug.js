@@ -1,15 +1,29 @@
-const Drug = () => {
-    const medicamento = "Paracetamol";
-    const what = "The medicine from a natural plant";
-    const commonUse = "Perfect for headache relief";
-    const indications = "Always take after each meal";
-    const contraindications = "Do not consume if you are pregnant";
-    const warning = "The medicine should be stored in a cool and dry place.";
-    const adverseEffects = "May cause brief stomach pain in some patients";
+import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import medicaments from "./medicaments.js";
+
+
+function Drug({ id }) {
+    const { id: urlId } = useParams();
+    // Convert the extracted id to a number
+    id = Number(urlId);
+    const medicine = medicaments.find((med) => med.id === id);
+    console.log(medicine);
+
+    const medicamento = medicine.name;
+    const what = medicine.description;
+    const commonUse = medicine.use;
+    const indications = medicine.indications;
+    const contraindications = medicine.contraindications;
+    const warning = medicine.warning;
+    const adverseEffects = medicine.adverse_effects;
+
+
+
     return (
-        <div className="flex justify-center items-center h-auto m-20">
-            <div className="flex flex-col w-full">
-                <h2 className="text-xl"style={{ paddingBottom: "40px" }}>{medicamento}</h2>
+        <div className="flex justify-center items-center h-full m-20 ">
+            <div className="flex flex-col w-full h-full py-20">
+                <h2 className="text-4xl" style={{ paddingBottom: "40px" }}>{medicamento}</h2>
                 <h5 className="text-lg" style={{ paddingBottom: "10px" }}>{what}</h5>
                 <div className="divider"></div>
                 <div className="grid h-20 place-items-rigth">
@@ -23,8 +37,8 @@ const Drug = () => {
                             <p style={{ paddingBottom: "10px" }}>{indications}</p>
                         </div>
                     </div>
-                </div> 
-                <div className="divider"></div> 
+                </div>
+                <div className="divider"></div>
                 <div className="grid h-20 place-items-rigth">
                     <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gridGap: 20 }}>
                         <div>
