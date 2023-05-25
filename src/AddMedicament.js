@@ -1,13 +1,42 @@
 import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import medicaments from './medicaments.js';
+import { useNavigate } from 'react-router-dom';
 
-const AddMedicament = ({ medicament }) => {
+const AddMedicament = () => {
     const [hour, setHour] = useState('');
     const [minute, setMinute] = useState('');
+    const { id } = useParams(); // Get the medicine ID from the URL
+
+    let idNumber = Number(id); // Convert the ID to a number
+
+    const [user, setUser] = useState(() => {
+        const userData = localStorage.getItem('user');
+        return userData ? JSON.parse(userData) : '';
+    });
+
+    const navigate = useNavigate();
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        const newMedicament = {
+            id: idNumber,
+            hours: Number(hour),
+            minutes: Number(minute), 
+        }
+
+        const newUser = {
+            ...user,
+            meds: [...user.meds, newMedicament],
+        }
+
+        navigate('/wallet');        
     }
+
+    const medicine = medicaments.find(medicament => medicament.id === idNumber);
+
     return (
         <div className="hero min-h-1000 bg-base-200 flex items-center justify-center">
             <div className="card flex-shrink-0 w-full max-w-xl shadow-2xl bg-base-100 p-8 m-20">
@@ -15,7 +44,7 @@ const AddMedicament = ({ medicament }) => {
                     className="card-body text-center"
                     onSubmit={handleSubmit}
                 >
-                    <h1 className="text-5xl font-bold mb-8">Add {medicament.name} +</h1>
+                    <h1 className="text-5xl font-bold mb-8">Add {medicine.name} +</h1>
 
                     <div className="form-control mb-8">
                         <label className="label">

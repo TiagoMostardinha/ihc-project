@@ -1,6 +1,8 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import medicaments from "./medicaments.js";
+import { Link } from 'react-router-dom';
+
 
 
 function Drug({ id }) {
@@ -24,6 +26,9 @@ function Drug({ id }) {
         <div className="flex justify-center items-center h-full m-20 ">
             <div className="flex flex-col w-full h-full py-20">
                 <h2 className="text-4xl" style={{ paddingBottom: "40px" }}>{medicamento}</h2>
+                <Link to={`/add/${medicine.id}`} className="bg-white-500 hover:bg-gray-100 text-dark font-semibold py-2 px-4 rounded mb-5 w-20">
+                    + Add
+                </Link>
                 <h5 className="text-lg" style={{ paddingBottom: "10px" }}>{what}</h5>
                 <div className="divider"></div>
                 <div className="grid h-20 place-items-rigth">
