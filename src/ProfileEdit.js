@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const ProfileEdit = ({onSubmit}) => {
+const ProfileEdit = ({ onSubmit }) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -10,11 +10,12 @@ const ProfileEdit = ({onSubmit}) => {
     const [weight, setWeight] = useState('');
     const [height, setHeight] = useState('');
     const [allergies, setAllergies] = useState([]);
+    const [newAllergy, setNewAllergy] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if(country === '') {
+        if (country === '') {
             alert('Please select a country');
             return;
         }
@@ -30,34 +31,45 @@ const ProfileEdit = ({onSubmit}) => {
                 height: height,
                 sex: sex,
                 allergies: allergies,
+                meds: [],
             }
         ));
 
         onSubmit(e);
     }
 
+    const handleAddAllergy = () => {
+        if (newAllergy) {
+            setAllergies([...allergies, newAllergy]);
+            setNewAllergy("");
+        } else {
+            alert("Please enter an allergy");
+        }
+    };
+
+
     return (
         <div>
             <form onSubmit={handleSubmit}>
                 <ul className="space-y-4 text-xl">
                     <li><strong>Name:</strong>
-                        <input type="text" placeholder="Type here" className="input w-full ml-5 max-w-xs" 
-                        required
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
+                        <input type="text" placeholder="Type here" className="input w-full ml-5 max-w-xs"
+                            required
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
                         />
                     </li>
                     <li><strong>Email:</strong>
-                        <input type="text" placeholder="Type here" className="input w-full ml-5  max-w-xs" 
-                        required
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        <input type="text" placeholder="Type here" className="input w-full ml-5  max-w-xs"
+                            required
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                         /></li>
                     <li><strong>Password:</strong>
-                        <input type="text" placeholder="Type here" className="input w-full ml-5 max-w-xs" 
-                        required
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
+                        <input type="text" placeholder="Type here" className="input w-full ml-5 max-w-xs"
+                            required
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
                         /></li>
                     <li><strong>Country:</strong>
                         <select className="select select-bordered w-full text-lg max-w-xs ml-5"
@@ -73,10 +85,10 @@ const ProfileEdit = ({onSubmit}) => {
                         </select>
                     </li>
                     <li><strong>Telephone:</strong>
-                        <input type="text" placeholder="Type here" className="input w-full ml-5 max-w-xs" 
-                        required
-                        value={telephone}
-                        onChange={(e) => setTelephone(e.target.value)}
+                        <input type="text" placeholder="Type here" className="input w-full ml-5 max-w-xs"
+                            required
+                            value={telephone}
+                            onChange={(e) => setTelephone(e.target.value)}
                         /></li>
                     <li><strong>Sex:</strong>
                         <select className="select select-bordered w-full text-lg max-w-xs ml-5"
@@ -89,25 +101,40 @@ const ProfileEdit = ({onSubmit}) => {
                         </select>
                     </li>
                     <li><strong>Weight:</strong>
-                        <input type="text" placeholder="Type here" className="input w-full ml-5 max-w-xs" 
-                        required
-                        value={weight}
-                        onChange={(e) => setWeight(e.target.value)}/> kg</li>
+                        <input type="text" placeholder="Type here" className="input w-full ml-5 max-w-xs"
+                            required
+                            value={weight}
+                            onChange={(e) => setWeight(e.target.value)} /> kg</li>
                     <li><strong>Height:</strong>
-                        <input type="text" placeholder="Type here" className="input w-full ml-5 max-w-xs" 
-                        required
-                        value={height}
-                        onChange={(e) => setHeight(e.target.value)}/> cm</li>
-                    <li><strong>Allergies:</strong>
+                        <input type="text" placeholder="Type here" className="input w-full ml-5 max-w-xs"
+                            required
+                            value={height}
+                            onChange={(e) => setHeight(e.target.value)} /> cm</li>
+                    <li><strong>Allergies: </strong>
                         {allergies.join(', ')}
-                        <span className="bg-white hover:bg-gray-300 text-black py-2 px-4 rounded-full border border-white hover:border-white">
+
+
+                    </li>
+                    <li>
+                        <input
+                            type="text"
+                            placeholder="Type allergy"
+                            className="input w-full ml-5 mr-5 max-w-xs"
+                            value={newAllergy}
+                            onChange={(e) => setNewAllergy(e.target.value)}
+                        />
+                        <button
+                            type="button"
+                            className="bg-white hover:bg-gray-300 text-black py-2 px-4 rounded-full border border-white hover:border-white"
+                            onClick={handleAddAllergy}
+                        >
                             Add Allergy +
-                        </span>
+                        </button>
                     </li>
                 </ul>
                 <div className="form-control mt-6">
-                        <button className="btn btn-primary text-xl mr-10">Confirm</button>
-                    </div>
+                    <button className="btn btn-primary text-xl mr-10">Confirm</button>
+                </div>
             </form>
         </div>
     );

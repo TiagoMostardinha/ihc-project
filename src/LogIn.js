@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-
+import userData from './userData.js';
 
 const LogIn = () => {
     const [email, setEmail] = useState('');
@@ -11,9 +11,23 @@ const LogIn = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const user = { email, password };
-        console.log(user);
-        navigate('/', { user: user });
+        if(email === '' || password === '') {
+            alert('Please fill all the fields');
+            return;
+        }
+
+        let user = userData.find(user => user.email === email);
+        if(user === undefined) {
+            alert('User not found');
+            return;
+        } else if(user.password !== password) {
+            alert('Wrong password');
+            return;
+        } else {
+            localStorage.setItem('user', JSON.stringify(user));
+            navigate('/profile');
+            document.location.reload();
+        }
 
     }
 
