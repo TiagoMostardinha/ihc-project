@@ -33,31 +33,32 @@ const Search = () => {
         }
     };
 
-    useEffect(() => {
-        if (selectedSymptoms.length === 0) {
-            setFilteredMedicaments(medicaments);
-            return;
+    const filterMedicaments = (symptoms) => {
+        if (symptoms.length === 0) {
+          setFilteredMedicaments(medicaments);
+          return;
         }
-    
-        const hasOtherSelected = selectedSymptoms.includes("other");
+      
+        const hasOtherSelected = symptoms.includes("other");
         const predefinedSymptoms = ['fever', 'backache', 'indigestion', 'heartburn', 'insomnia', 'headache', 'inflammation'];
-    
+      
+        const uniqueSymptoms = medicaments.map((medicament) => {
+          return medicament.symptoms.filter((symptom) => !predefinedSymptoms.includes(symptom));
+        }).flat();
+      
         const updatedFilteredMedicaments = medicaments.filter((medicament) => {
-            if (hasOtherSelected) {
-                const otherSymptoms = medicament.symptoms.filter((symptom) => !predefinedSymptoms.includes(symptom));
-                if (otherSymptoms.length > 0) {
-                    return true;
-                }
-            }
-    
-            return selectedSymptoms.every((symptom) => {
-                return medicament.symptoms.includes(symptom);
-            });
+      
+          return symptoms.every((symptom) => {
+            return medicament.symptoms.includes(symptom);
+          });
         });
-    
+      
         setFilteredMedicaments(updatedFilteredMedicaments);
-    }, [selectedSymptoms, medicaments]);
-
+      };
+      
+      useEffect(() => {
+        filterMedicaments(selectedSymptoms);
+      }, [selectedSymptoms]);
 
 
     return (
@@ -128,7 +129,7 @@ const Search = () => {
                                 </div>
                                 <div className="form-control" id="">
                                     <label className="">
-                                        <input type="checkbox" value="others" onChange={handleCheckboxChange} />
+                                        <input type="checkbox" />
                                         <span className="checkbox-mark"></span>
                                         <span className="ml-1">+ Others</span>
                                     </label>
@@ -145,7 +146,7 @@ const Search = () => {
                                 <div className="flex-grow">
                                     <h2 className="text-2xl font-bold text-gray-800">{medicament.name}</h2>
                                     <p className="text-gray-600">{medicament.description}</p>
-                                    <Link to="/drug" className="btn btn-primary">Go There</Link>
+                                    <Link to={`/drug/${medicament.id}`} className="btn btn-primary">Go There</Link>
                                 </div>
                             </div>
                         ))}

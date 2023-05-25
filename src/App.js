@@ -49,7 +49,7 @@ function App() {
             <Route exact path='/aboutus' element={<AboutUs />} />
             <Route exact path='/login' element={<LogIn />} />
             <Route exact path='/wallet' element={<Wallet fuser={fuser}/>} />
-            <Route exact path='/drug' element={<Drug />} />
+            <Route path="/drug/:id" element={<Drug />} />
             <Route exact path='/search' element={<Search/>} />
           </Routes>
         </div>
